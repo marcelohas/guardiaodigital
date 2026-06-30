@@ -170,10 +170,14 @@ body {
 
 /* Dashboard Grid */
 .dashboard-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 2rem;
-    align-items: start;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.config-card {
+    width: 100%;
+    max-width: 680px;
 }
 
 /* Card Common Styles */

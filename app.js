@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlValidationDot = document.getElementById('url-validation-dot');
     const urlHelper = document.getElementById('url-helper');
     const reportToneSelect = document.getElementById('report-tone');
-    const promptOutput = document.getElementById('prompt-output');
-    const btnCopy = document.getElementById('btn-copy');
     const btnSubmit = document.getElementById('btn-submit');
     const toastContainer = document.getElementById('toast-container');
     const presetOptions = document.querySelectorAll('.preset-option');
@@ -120,16 +118,14 @@ Por favor, realize uma auditoria focada em **Coleta de Dados e Segurança de For
         return checkedRadio ? checkedRadio.value : 'completa';
     }
 
-    // Função para Gerar e Exibir o Prompt
+    // Função para Gerar o Prompt
     function generatePrompt() {
         const urlText = siteUrlInput.value;
         const validation = validateURL(urlText);
         
-        let urlPlaceholder = '[Insira a URL do site no campo de configuração ao lado]';
+        let urlPlaceholder = '';
         if (validation.isValid) {
             urlPlaceholder = validation.formatted;
-        } else if (!validation.isEmpty) {
-            urlPlaceholder = `[URL Inválida: ${urlText}]`;
         }
 
         const preset = getSelectedPreset();
@@ -142,7 +138,6 @@ Por favor, realize uma auditoria focada em **Coleta de Dados e Segurança de For
             .replace('[URL]', urlPlaceholder)
             .replace('[TOM]', toneText);
 
-        promptOutput.textContent = finalPrompt;
         return finalPrompt;
     }
 
@@ -197,29 +192,6 @@ Por favor, realize uma auditoria focada em **Coleta de Dados e Segurança de For
     function copyPromptToClipboard(text) {
         return navigator.clipboard.writeText(text);
     }
-
-    // Ação do Botão Copiar
-    btnCopy.addEventListener('click', () => {
-        const promptText = generatePrompt();
-        copyPromptToClipboard(promptText)
-            .then(() => {
-                // Micro-animação do Botão Copiar
-                const originalHtml = btnCopy.innerHTML;
-                btnCopy.innerHTML = '<i data-lucide="check" class="btn-icon"></i><span>Copiado!</span>';
-                lucide.createIcons();
-                btnCopy.classList.add('success-state');
-
-                setTimeout(() => {
-                    btnCopy.innerHTML = originalHtml;
-                    lucide.createIcons();
-                    btnCopy.classList.remove('success-state');
-                }, 2000);
-            })
-            .catch(err => {
-                console.error('Falha ao copiar prompt:', err);
-                alert('Erro ao copiar prompt para a área de transferência.');
-            });
-    });
 
     // Ação do Botão de Envio (Iniciar no ChatGPT)
     btnSubmit.addEventListener('click', () => {

@@ -44,10 +44,10 @@
 
         <!-- Conteúdo Principal -->
         <main class="app-main">
-            <!-- Grid de Duas Colunas -->
+            <!-- Formulário de Auditoria Centralizado -->
             <div class="dashboard-grid">
                 
-                <!-- Coluna da Esquerda: Formulário de Configuração -->
+                <!-- Card de Configuração Central -->
                 <section class="card config-card">
                     <div class="card-header">
                         <i data-lucide="sliders" class="card-header-icon"></i>
@@ -121,42 +121,26 @@
                                 <i data-lucide="chevron-down" class="select-arrow"></i>
                             </div>
                         </div>
+
+                        <!-- Botão Principal de Ação -->
+                        <button type="button" id="btn-submit" class="btn btn-primary btn-large disabled" style="margin-top: 0.5rem;">
+                            <i data-lucide="zap" class="btn-icon"></i>
+                            <span>Iniciar Auditoria no ChatGPT</span>
+                        </button>
                     </form>
                 </section>
 
-                <!-- Coluna da Direita: Prompt & Ações -->
-                <section class="card prompt-card">
-                    <div class="card-header">
-                        <i data-lucide="terminal" class="card-header-icon"></i>
-                        <h2>Prompt Gerado para o Agente</h2>
-                        <span class="live-indicator">LIVE</span>
-                    </div>
-                    
-                    <div class="prompt-container">
-                        <pre class="prompt-preview"><code id="prompt-output">Carregando prompt...</code></pre>
-                        <button type="button" id="btn-copy" class="btn btn-secondary" title="Copiar prompt para a área de transferência">
-                            <i data-lucide="copy" class="btn-icon"></i>
-                            <span>Copiar Prompt</span>
-                        </button>
-                    </div>
+            </div>
 
-                    <!-- Botão Principal de Ação -->
-                    <button type="button" id="btn-submit" class="btn btn-primary btn-large disabled">
-                        <i data-lucide="zap" class="btn-icon"></i>
-                        <span>Iniciar Auditoria no ChatGPT</span>
-                    </button>
-                    
-                    <div class="toast-container" id="toast-container">
-                        <div class="toast-message">
-                            <i data-lucide="check-circle" class="toast-icon"></i>
-                            <div>
-                                <strong>Prompt Copiado!</strong>
-                                <p>O agente está abrindo. Basta colar (Ctrl+V) no chat.</p>
-                            </div>
-                        </div>
+            <!-- Toast Container -->
+            <div class="toast-container" id="toast-container">
+                <div class="toast-message">
+                    <i data-lucide="check-circle" class="toast-icon"></i>
+                    <div>
+                        <strong>Prompt Copiado!</strong>
+                        <p>O agente está abrindo. Basta colar (Ctrl+V) no chat.</p>
                     </div>
-                </section>
-
+                </div>
             </div>
 
             <!-- Seção de Frameworks e Metodologia -->
