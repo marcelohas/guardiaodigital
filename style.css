@@ -170,14 +170,10 @@ body {
 
 /* Dashboard Grid */
 .dashboard-grid {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.config-card {
-    width: 100%;
-    max-width: 680px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    align-items: start;
 }
 
 /* Card Common Styles */
@@ -924,4 +920,567 @@ body {
 
 .step-text strong {
     color: var(--primary-color);
+}
+
+/* ==========================================
+   CSS ANIMATION & TUTORIAL CARD STYLING
+   ========================================== */
+
+.tutorial-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tutor-indicator {
+    background: rgba(143, 67, 255, 0.1);
+    color: #b185ff;
+    border: 1px solid rgba(143, 67, 255, 0.3);
+}
+
+.tutor-indicator::before {
+    background-color: #b185ff;
+    box-shadow: 0 0 8px #b185ff;
+}
+
+.animation-container {
+    background: rgba(3, 4, 7, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Browser Mockup */
+.browser-mockup {
+    width: 100%;
+    max-width: 440px;
+    height: 290px;
+    background: #0d121f;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.browser-header {
+    height: 36px;
+    background: #080b13;
+    border-bottom: 1.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.browser-dots {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    left: 1rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.browser-address {
+    background: #030509;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding: 2px 1.5rem;
+    margin: 0 auto;
+    width: 180px;
+    text-align: center;
+    font-family: var(--font-mono);
+}
+
+.browser-content {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Screens */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #0d121f;
+    box-sizing: border-box;
+}
+
+/* Screen 1: Portal */
+.screen-portal {
+    animation: portal-switch 15s infinite ease-in-out;
+}
+
+.mock-input {
+    background: #04060b;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mock-icon {
+    width: 12px;
+    height: 12px;
+    color: var(--text-placeholder);
+    margin-right: 6px;
+}
+
+.mock-text-typed {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-main);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1.5px solid transparent;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mock-text-typed::after {
+    content: "universidade.com.br";
+    animation: type-url-text 15s infinite steps(20, end);
+}
+
+.mock-dot {
+    position: absolute;
+    right: 0.75rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-placeholder);
+    animation: input-validation 15s infinite step-end;
+}
+
+.mock-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.mock-opt {
+    background: #04060b;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.mock-opt-3 {
+    animation: opt-select-state 15s infinite ease-in-out;
+}
+
+.mock-btn {
+    background: var(--primary-gradient);
+    color: #030712;
+    border-radius: 6px;
+    padding: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: auto;
+    box-shadow: 0 4px 10px rgba(13, 223, 212, 0.15);
+    animation: mock-btn-click 15s infinite ease-in-out;
+}
+
+.mock-btn-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.mock-toast {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    background: #080b13;
+    border: 1px solid var(--success);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: mock-toast-pop 15s infinite ease-in-out;
+}
+
+.mock-toast-icon {
+    width: 10px;
+    height: 10px;
+}
+
+/* Screen 2: ChatGPT */
+.screen-chatgpt {
+    transform: translateX(100%);
+    animation: chatgpt-switch 15s infinite ease-in-out;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.chat-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background: #00a67e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+}
+
+.chat-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.chat-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+}
+
+.chat-bubble {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.bubble-in {
+    background: #202b40;
+    color: var(--text-main);
+    align-self: flex-start;
+}
+
+.bubble-out {
+    background: #00a67e;
+    color: white;
+    align-self: flex-end;
+    opacity: 0;
+    transform: translateY(10px);
+    white-space: pre-wrap;
+    animation: chatgpt-msg-sent 15s infinite ease-in-out;
+}
+
+.chat-input-area {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.chat-input-box {
+    background: #04060b;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    flex-grow: 1;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-input-placeholder {
+    font-size: 0.65rem;
+    color: var(--text-placeholder);
+    position: absolute;
+    left: 0.5rem;
+    animation: chatgpt-placeholder-hide 15s infinite step-end;
+}
+
+.chat-input-text {
+    font-size: 0.65rem;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1.5px solid transparent;
+    display: inline-block;
+    animation: chatgpt-type-text 15s infinite steps(20, end);
+}
+
+.ctrl-v-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--primary-gradient);
+    color: #030712;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    opacity: 0;
+    animation: ctrl-v-popup 15s infinite ease-in-out;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.chat-send-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-placeholder);
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: chat-send-click-effect 15s infinite ease-in-out;
+}
+
+.mock-send-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Simulated Cursor */
+.mock-cursor {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    z-index: 10;
+    pointer-events: none;
+    animation: cursor-movement 15s infinite ease-in-out;
+}
+
+.cursor-icon {
+    width: 14px;
+    height: 14px;
+    color: white;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+    transform: rotate(-90deg);
+}
+
+/* Tutorial Steps Descriptions */
+.tutorial-steps-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.t-step {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.t-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.t-step p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.t-step strong {
+    color: var(--text-main);
+}
+
+/* Synchronized Step Activation */
+.t-step:nth-child(1) { animation: step-1-active 15s infinite ease-in-out; }
+.t-step:nth-child(2) { animation: step-2-active 15s infinite ease-in-out; }
+.t-step:nth-child(3) { animation: step-3-active 15s infinite ease-in-out; }
+
+
+/* ==========================================
+   TUTORIAL TIMELINE KEYFRAMES (15s Loop)
+   ========================================== */
+
+/* Cursor Movement */
+@keyframes cursor-movement {
+    0% { transform: translate(350px, 250px); }
+    /* Passo 1: Digitar URL */
+    6% { transform: translate(100px, 60px); } /* Move para o campo de input */
+    16% { transform: translate(100px, 60px); } /* Clica/Foca e digita */
+    /* Passo 2: Selecionar Preset Alunos */
+    20% { transform: translate(320px, 120px); } /* Move para mock-opt-3 */
+    24% { transform: translate(320px, 120px) scale(0.85); } /* Clica */
+    26% { transform: translate(320px, 120px) scale(1); }
+    /* Passo 3: Iniciar Auditoria */
+    30% { transform: translate(220px, 205px); } /* Move para botão Iniciar */
+    34% { transform: translate(220px, 205px) scale(0.85); } /* Clica */
+    36% { transform: translate(220px, 205px) scale(1); }
+    40% { transform: translate(350px, 250px); } /* Sai da tela */
+    
+    /* Passo 4: ChatGPT */
+    43% { transform: translate(350px, 250px); } /* Tela transiciona */
+    52% { transform: translate(180px, 225px); } /* Move para a barra do ChatGPT */
+    56% { transform: translate(180px, 225px) scale(0.85); } /* Clica na barra */
+    58% { transform: translate(180px, 225px) scale(1); }
+    64% { transform: translate(180px, 225px); } /* Espera colar */
+    70% { transform: translate(410px, 225px); } /* Move para botão Enviar */
+    74% { transform: translate(410px, 225px) scale(0.85); } /* Clica enviar */
+    76% { transform: translate(410px, 225px) scale(1); }
+    82% { transform: translate(350px, 250px); } /* Sai de cena */
+    100% { transform: translate(350px, 250px); }
+}
+
+/* Portal Screen Animation */
+@keyframes portal-switch {
+    0%, 40% { transform: translateX(0); opacity: 1; }
+    42%, 92% { transform: translateX(-100%); opacity: 0; }
+    94%, 100% { transform: translateX(0); opacity: 1; }
+}
+
+/* ChatGPT Screen Animation */
+@keyframes chatgpt-switch {
+    0%, 40% { transform: translateX(100%); opacity: 0; }
+    42%, 92% { transform: translateX(0); opacity: 1; }
+    94%, 100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Simulated URL Typing */
+@keyframes type-url-text {
+    0% { width: 0; }
+    6% { width: 0; }
+    14%, 100% { width: 100%; }
+}
+
+/* Mock Input validation dot */
+@keyframes input-validation {
+    0%, 14% { background-color: var(--text-placeholder); box-shadow: none; }
+    15%, 100% { background-color: var(--success); box-shadow: 0 0 6px var(--success); }
+}
+
+/* Preset selection state */
+@keyframes opt-select-state {
+    0%, 23% { border-color: var(--border-color); background: rgba(3, 4, 7, 0.2); color: var(--text-muted); }
+    24%, 100% { border-color: var(--primary-color); background: rgba(13, 223, 212, 0.05); color: var(--primary-color); }
+}
+
+/* Submit Button Click styling */
+@keyframes mock-btn-click {
+    0%, 33% { transform: scale(1); filter: brightness(1); }
+    34% { transform: scale(0.95); filter: brightness(0.9); }
+    36%, 100% { transform: scale(1); filter: brightness(1.1); box-shadow: 0 0 10px var(--primary-glow); }
+}
+
+/* Mock Toast pop styling */
+@keyframes mock-toast-pop {
+    0%, 35% { opacity: 0; transform: translateY(10px); }
+    38%, 41% { opacity: 1; transform: translateY(0); }
+    43%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ChatGPT Input text typing simulation */
+@keyframes chatgpt-type-text {
+    0%, 58% { width: 0; content: ""; }
+    64%, 73% { width: 100%; content: "Olá Guardião Digital! Analise o site..."; }
+    74%, 100% { width: 0; content: ""; }
+}
+
+/* ChatGPT Input placeholder hiding */
+@keyframes chatgpt-placeholder-hide {
+    0%, 57% { opacity: 1; }
+    58%, 73% { opacity: 0; }
+    74%, 100% { opacity: 1; }
+}
+
+/* Ctrl+V Overlay popup */
+@keyframes ctrl-v-popup {
+    0%, 57% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    59%, 62% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    64%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+/* ChatGPT Send Button effect */
+@keyframes chat-send-click-effect {
+    0%, 73% { background: rgba(255, 255, 255, 0.1); color: var(--text-placeholder); }
+    74% { background: var(--primary-color); color: #030712; transform: scale(0.9); }
+    76%, 100% { background: rgba(255, 255, 255, 0.1); color: var(--text-placeholder); transform: scale(1); }
+}
+
+/* User Message bubble showing */
+@keyframes chatgpt-msg-sent {
+    0%, 74% { opacity: 0; transform: translateY(10px); content: ""; }
+    77%, 92% { opacity: 1; transform: translateY(0); content: "Olá Guardião Digital! Analise o site..."; }
+    94%, 100% { opacity: 0; transform: translateY(10px); content: ""; }
+}
+
+/* Sync Step 1 text active state */
+@keyframes step-1-active {
+    0%, 3% { opacity: 0.4; border-color: transparent; background: transparent; }
+    4%, 23% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
+    24%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
+}
+
+/* Sync Step 2 text active state */
+@keyframes step-2-active {
+    0%, 23% { opacity: 0.4; border-color: transparent; background: transparent; }
+    24%, 41% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
+    42%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
+}
+
+/* Sync Step 3 text active state */
+@keyframes step-3-active {
+    0%, 41% { opacity: 0.4; border-color: transparent; background: transparent; }
+    42%, 91% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
+    92%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
 }

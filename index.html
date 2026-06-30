@@ -44,10 +44,10 @@
 
         <!-- Conteúdo Principal -->
         <main class="app-main">
-            <!-- Formulário de Auditoria Centralizado -->
+            <!-- Painel Principal de Duas Colunas -->
             <div class="dashboard-grid">
                 
-                <!-- Card de Configuração Central -->
+                <!-- Card de Configuração -->
                 <section class="card config-card">
                     <div class="card-header">
                         <i data-lucide="sliders" class="card-header-icon"></i>
@@ -137,6 +137,99 @@
                             <span>Iniciar Auditoria no ChatGPT</span>
                         </button>
                     </form>
+                </section>
+
+                <!-- Card de Tutorial Animado -->
+                <section class="card tutorial-card">
+                    <div class="card-header">
+                        <i data-lucide="help-circle" class="card-header-icon"></i>
+                        <h2>Como Funciona?</h2>
+                        <span class="live-indicator tutor-indicator">TUTORIAL ANIMADO</span>
+                    </div>
+                    
+                    <div class="animation-container">
+                        <!-- Janela de Navegador Simulada -->
+                        <div class="browser-mockup">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="dot dot-red"></span>
+                                    <span class="dot dot-yellow"></span>
+                                    <span class="dot dot-green"></span>
+                                </div>
+                                <div class="browser-address">guardiaodigital.com</div>
+                            </div>
+                            
+                            <div class="browser-content">
+                                <!-- Tela 1: Portal Guardião -->
+                                <div class="screen screen-portal">
+                                    <div class="mock-input">
+                                        <i data-lucide="globe" class="mock-icon"></i>
+                                        <span class="mock-text-typed"></span>
+                                        <span class="mock-dot"></span>
+                                    </div>
+                                    
+                                    <div class="mock-options">
+                                        <div class="mock-opt mock-opt-1">Geral</div>
+                                        <div class="mock-opt mock-opt-2">Cookies</div>
+                                        <div class="mock-opt mock-opt-3">Alunos</div>
+                                    </div>
+                                    
+                                    <div class="mock-btn">
+                                        <i data-lucide="zap" class="mock-btn-icon"></i> 
+                                        <span class="mock-btn-text">Iniciar Auditoria</span>
+                                    </div>
+                                    
+                                    <!-- Toast que aparece na simulação -->
+                                    <div class="mock-toast">
+                                        <i data-lucide="check" class="mock-toast-icon"></i>
+                                        <span>Prompt Copiado!</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tela 2: ChatGPT -->
+                                <div class="screen screen-chatgpt">
+                                    <div class="chat-header">
+                                        <div class="chat-avatar">🛡️</div>
+                                        <div class="chat-name">Guardião Digital</div>
+                                    </div>
+                                    
+                                    <div class="chat-body">
+                                        <div class="chat-bubble bubble-in">Olá! Envie a URL do site para iniciarmos a auditoria...</div>
+                                        <div class="chat-bubble bubble-out mock-prompt-bubble"></div>
+                                    </div>
+                                    
+                                    <div class="chat-input-area">
+                                        <div class="chat-input-box">
+                                            <span class="chat-input-placeholder">Cole o prompt aqui...</span>
+                                            <span class="chat-input-text"></span>
+                                            <div class="ctrl-v-overlay">Ctrl + V</div>
+                                        </div>
+                                        <div class="chat-send-btn"><i data-lucide="arrow-up" class="mock-send-icon"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ponteiro do Mouse Animado -->
+                            <div class="mock-cursor">
+                                <i data-lucide="mouse-pointer-2" class="cursor-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-steps-desc">
+                        <div class="t-step active" id="t-step-1">
+                            <span class="t-badge">1</span>
+                            <p>Insira a URL e selecione o tipo de análise desejada.</p>
+                        </div>
+                        <div class="t-step" id="t-step-2">
+                            <span class="t-badge">2</span>
+                            <p>Clique para copiar o prompt e abrir o ChatGPT automaticamente.</p>
+                        </div>
+                        <div class="t-step" id="t-step-3">
+                            <span class="t-badge">3</span>
+                            <p>Pressione <strong>Ctrl + V</strong> no chat do Guardião Digital e dê Enter!</p>
+                        </div>
+                    </div>
                 </section>
 
             </div>
