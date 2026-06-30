@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSubmit = document.getElementById('btn-submit');
     const toastContainer = document.getElementById('toast-container');
     const presetOptions = document.querySelectorAll('.preset-option');
+    const copyModal = document.getElementById('copy-modal');
+    const btnCloseModal = document.getElementById('btn-close-modal');
 
     // Link do Custom GPT do Guardião Digital
     const AGENT_BASE_URL = 'https://chatgpt.com/g/g-6a419db8b8e08191a1982dc14621cc97-guardiao-digital-by-tchelo-educa';
@@ -154,29 +156,34 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Copiar prompt para a área de transferência
         copyPromptToClipboard(promptText)
             .then(() => {
-                // 2. Exibir toast de sucesso
-                toastContainer.classList.add('show');
+                // 2. Exibir modal explicativo de instrução de colar
+                copyModal.classList.add('show');
                 
-                // 3. Montar URL do ChatGPT e abrir em nova aba após um leve delay
+                // 3. Montar URL do ChatGPT e abrir em nova aba imediatamente para evitar pop-up blocker
                 const encodedPrompt = encodeURIComponent(promptText);
                 const chatGptUrl = `${AGENT_BASE_URL}?q=${encodedPrompt}`;
                 
-                setTimeout(() => {
-                    window.open(chatGptUrl, '_blank', 'noopener,noreferrer');
-                }, 800);
-
-                // Fechar o toast após 4.5 segundos
-                setTimeout(() => {
-                    toastContainer.classList.remove('show');
-                }, 4500);
+                window.open(chatGptUrl, '_blank', 'noopener,noreferrer');
             })
             .catch(err => {
                 console.error('Falha ao acionar fluxo de cópia:', err);
-                // Fallback caso a API do Clipboard falhe sem permissão explícita
+                copyModal.classList.add('show');
                 const encodedPrompt = encodeURIComponent(promptText);
                 const chatGptUrl = `${AGENT_BASE_URL}?q=${encodedPrompt}`;
                 window.open(chatGptUrl, '_blank', 'noopener,noreferrer');
             });
+    });
+
+    // Fechar modal ao clicar no botão
+    btnCloseModal.addEventListener('click', () => {
+        copyModal.classList.remove('show');
+    });
+
+    // Fechar modal ao clicar no overlay escuro
+    copyModal.addEventListener('click', (e) => {
+        if (e.target === copyModal) {
+            copyModal.classList.remove('show');
+        }
     });
 
     // Inicialização da página

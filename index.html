@@ -210,6 +210,32 @@
         </footer>
     </div>
 
+    <!-- Modal de Orientação (Instruções de Cópia) -->
+    <div class="modal-overlay" id="copy-modal">
+        <div class="modal-card">
+            <div class="modal-icon-wrapper">
+                <i data-lucide="clipboard-copy" class="modal-icon"></i>
+            </div>
+            <h3>Prompt Copiado! 🛡️</h3>
+            <p>O ChatGPT foi aberto em outra aba com o <strong>Guardião Digital</strong>.</p>
+            <div class="steps-box">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Acesse a aba do ChatGPT que acabou de abrir.</span>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Clique na caixa de mensagem e cole o prompt com <strong>Ctrl + V</strong> (ou clique com botão direito e selecione colar).</span>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Envie a mensagem (pressionando <strong>Enter</strong>) para iniciar a auditoria do site.</span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-close-modal">Entendido, ir para o ChatGPT</button>
+        </div>
+    </div>
+
     <!-- Script da Aplicação -->
     <script src="app.js"></script>
 </body>
