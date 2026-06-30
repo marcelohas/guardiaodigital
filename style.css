@@ -357,6 +357,12 @@ body {
     cursor: pointer;
 }
 
+@media (min-width: 769px) {
+    .preset-option:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
 .preset-option input[type="radio"] {
     display: none;
 }
