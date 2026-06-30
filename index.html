@@ -139,12 +139,12 @@
                     </form>
                 </section>
 
-                <!-- Card de Tutorial Animado -->
+                <!-- Card de Tutorial Animado (5 Passos) -->
                 <section class="card tutorial-card">
                     <div class="card-header">
                         <i data-lucide="help-circle" class="card-header-icon"></i>
                         <h2>Como Funciona?</h2>
-                        <span class="live-indicator tutor-indicator">TUTORIAL ANIMADO</span>
+                        <span class="live-indicator tutor-indicator">TUTORIAL</span>
                     </div>
                     
                     <div class="animation-container">
@@ -160,74 +160,80 @@
                             </div>
                             
                             <div class="browser-content">
-                                <!-- Tela 1: Portal Guardião -->
-                                <div class="screen screen-portal">
-                                    <div class="mock-input">
-                                        <i data-lucide="globe" class="mock-icon"></i>
-                                        <span class="mock-text-typed"></span>
-                                        <span class="mock-dot"></span>
-                                    </div>
-                                    
-                                    <div class="mock-options">
-                                        <div class="mock-opt mock-opt-1">Geral</div>
-                                        <div class="mock-opt mock-opt-2">Cookies</div>
-                                        <div class="mock-opt mock-opt-3">Alunos</div>
-                                    </div>
-                                    
-                                    <div class="mock-btn">
-                                        <i data-lucide="zap" class="mock-btn-icon"></i> 
-                                        <span class="mock-btn-text">Iniciar Auditoria</span>
-                                    </div>
-                                    
-                                    <!-- Toast que aparece na simulação -->
-                                    <div class="mock-toast">
-                                        <i data-lucide="check" class="mock-toast-icon"></i>
-                                        <span>Prompt Copiado!</span>
+                                <!-- Passo 1: Cole o Link -->
+                                <div class="slide slide-1">
+                                    <span class="slide-title">1. Cole o Link do Site</span>
+                                    <div class="sim-input">
+                                        <i data-lucide="globe" class="sim-icon"></i>
+                                        <span class="sim-typewriter-1"></span>
+                                        <span class="sim-dot-success"></span>
                                     </div>
                                 </div>
                                 
-                                <!-- Tela 2: ChatGPT -->
-                                <div class="screen screen-chatgpt">
-                                    <div class="chat-header">
-                                        <div class="chat-avatar">🛡️</div>
-                                        <div class="chat-name">Guardião Digital</div>
-                                    </div>
-                                    
-                                    <div class="chat-body">
-                                        <div class="chat-bubble bubble-in">Olá! Envie a URL do site para iniciarmos a auditoria...</div>
-                                        <div class="chat-bubble bubble-out mock-prompt-bubble"></div>
-                                    </div>
-                                    
-                                    <div class="chat-input-area">
-                                        <div class="chat-input-box">
-                                            <span class="chat-input-placeholder">Cole o prompt aqui...</span>
-                                            <span class="chat-input-text"></span>
-                                            <div class="ctrl-v-overlay">Ctrl + V</div>
-                                        </div>
-                                        <div class="chat-send-btn"><i data-lucide="arrow-up" class="mock-send-icon"></i></div>
+                                <!-- Passo 2: Escolha o Foco -->
+                                <div class="slide slide-2">
+                                    <span class="slide-title">2. Escolha o Foco</span>
+                                    <div class="sim-presets">
+                                        <div class="sim-preset">Geral</div>
+                                        <div class="sim-preset active-preset">Dados de Alunos</div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- Ponteiro do Mouse Animado -->
-                            <div class="mock-cursor">
-                                <i data-lucide="mouse-pointer-2" class="cursor-icon"></i>
+                                
+                                <!-- Passo 3: Escolha o Tom -->
+                                <div class="slide slide-3">
+                                    <span class="slide-title">3. Escolha o Tom</span>
+                                    <div class="sim-select">
+                                        <i data-lucide="message-square" class="sim-icon"></i>
+                                        <span>👔 Executivo</span>
+                                        <i data-lucide="chevron-down" class="sim-arrow"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Passo 4: Clique em Iniciar -->
+                                <div class="slide slide-4">
+                                    <span class="slide-title">4. Clique em Iniciar</span>
+                                    <div class="sim-btn-submit">
+                                        <i data-lucide="zap" class="sim-icon"></i>
+                                        <span>Iniciar Auditoria no ChatGPT</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Passo 5: Cole no ChatGPT -->
+                                <div class="slide slide-5">
+                                    <span class="slide-title">5. Cole no ChatGPT (Ctrl + V)</span>
+                                    <div class="sim-chat-area">
+                                        <div class="sim-keyboard-ctrl-v">
+                                            <span class="key">Ctrl</span> + <span class="key">V</span>
+                                        </div>
+                                        <div class="sim-chat-input">
+                                            <span class="typing-prompt"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="tutorial-steps-desc">
-                        <div class="t-step active" id="t-step-1">
-                            <span class="t-badge">1</span>
-                            <p>Insira a URL e selecione o tipo de análise desejada.</p>
+                    <div class="tutorial-steps-list">
+                        <div class="step-indicator" id="step-1">
+                            <span class="step-number">1</span>
+                            <span class="step-text">Cole o link do site para analisar</span>
                         </div>
-                        <div class="t-step" id="t-step-2">
-                            <span class="t-badge">2</span>
-                            <p>Clique para copiar o prompt e abrir o ChatGPT automaticamente.</p>
+                        <div class="step-indicator" id="step-2">
+                            <span class="step-number">2</span>
+                            <span class="step-text">Escolha o foco da auditoria</span>
                         </div>
-                        <div class="t-step" id="t-step-3">
-                            <span class="t-badge">3</span>
-                            <p>Pressione <strong>Ctrl + V</strong> no chat do Guardião Digital e dê Enter!</p>
+                        <div class="step-indicator" id="step-3">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Escolha o tom do relatório</span>
+                        </div>
+                        <div class="step-indicator" id="step-4">
+                            <span class="step-number">4</span>
+                            <span class="step-text">Clique em Iniciar Auditoria</span>
+                        </div>
+                        <div class="step-indicator" id="step-5">
+                            <span class="step-number">5</span>
+                            <span class="step-text">No ChatGPT, use <strong>Ctrl + V</strong> para colar</span>
                         </div>
                     </div>
                 </section>
@@ -303,31 +309,7 @@
         </footer>
     </div>
 
-    <!-- Modal de Orientação (Instruções de Cópia) -->
-    <div class="modal-overlay" id="copy-modal">
-        <div class="modal-card">
-            <div class="modal-icon-wrapper">
-                <i data-lucide="clipboard-copy" class="modal-icon"></i>
-            </div>
-            <h3>Prompt Copiado! 🛡️</h3>
-            <p>O ChatGPT foi aberto em outra aba com o <strong>Guardião Digital</strong>.</p>
-            <div class="steps-box">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <span class="step-text">Acesse a aba do ChatGPT que acabou de abrir.</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <span class="step-text">Clique na caixa de mensagem e cole o prompt com <strong>Ctrl + V</strong> (ou clique com botão direito e selecione colar).</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">3</span>
-                    <span class="step-text">Envie a mensagem (pressionando <strong>Enter</strong>) para iniciar a auditoria do site.</span>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary" id="btn-close-modal">Entendido, ir para o ChatGPT</button>
-        </div>
-    </div>
+
 
     <!-- Script da Aplicação -->
     <script src="app.js"></script>

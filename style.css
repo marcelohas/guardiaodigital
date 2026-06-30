@@ -805,125 +805,8 @@ body {
     }
 }
 
-/* Modal Overlay & Card Styling */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(3, 4, 7, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.modal-overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-card {
-    background: var(--bg-card);
-    border: 1.5px solid rgba(13, 223, 212, 0.25);
-    box-shadow: 0 0 40px rgba(13, 223, 212, 0.15);
-    border-radius: var(--border-radius);
-    padding: 2.5rem;
-    max-width: 480px;
-    width: 90%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transform: translateY(30px);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.modal-overlay.show .modal-card {
-    transform: translateY(0);
-}
-
-.modal-icon-wrapper {
-    background: rgba(13, 223, 212, 0.1);
-    border: 1px solid rgba(13, 223, 212, 0.3);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    box-shadow: 0 0 15px rgba(13, 223, 212, 0.1);
-}
-
-.modal-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--primary-color);
-}
-
-.modal-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.modal-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.steps-box {
-    background: rgba(3, 4, 7, 0.4);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1.25rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.step-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-}
-
-.step-number {
-    background: var(--primary-gradient);
-    color: #030712;
-    font-weight: 700;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.step-text {
-    font-size: 0.85rem;
-    color: var(--text-main);
-    line-height: 1.4;
-}
-
-.step-text strong {
-    color: var(--primary-color);
-}
-
 /* ==========================================
-   CSS ANIMATION & TUTORIAL CARD STYLING
+   CSS ANIMATION & TUTORIAL CARD STYLING (5 STEPS)
    ========================================== */
 
 .tutorial-card {
@@ -960,7 +843,7 @@ body {
 .browser-mockup {
     width: 100%;
     max-width: 440px;
-    height: 290px;
+    height: 200px;
     background: #0d121f;
     border: 1.5px solid var(--border-color);
     border-radius: 12px;
@@ -979,6 +862,7 @@ body {
     align-items: center;
     padding: 0 1rem;
     position: relative;
+    flex-shrink: 0;
 }
 
 .browser-dots {
@@ -1016,309 +900,304 @@ body {
     overflow: hidden;
 }
 
-/* Screens */
-.screen {
+/* Slide Base */
+.slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     padding: 1rem;
+    background: #0d121f;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    background: #0d121f;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
 }
 
-/* Screen 1: Portal */
-.screen-portal {
-    animation: portal-switch 15s infinite ease-in-out;
+.slide-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.mock-input {
+/* Slide 1 Specifics */
+.slide-1 {
+    animation: slide-1-fade 15s infinite ease-in-out;
+}
+
+.sim-input {
     background: #04060b;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.5rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    width: 80%;
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.mock-icon {
-    width: 12px;
-    height: 12px;
+.sim-icon {
+    width: 14px;
+    height: 14px;
     color: var(--text-placeholder);
-    margin-right: 6px;
+    margin-right: 8px;
+    flex-shrink: 0;
 }
 
-.mock-text-typed {
+.sim-typewriter-1 {
     font-size: 0.75rem;
     font-family: var(--font-mono);
     color: var(--text-main);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 1.5px solid transparent;
     display: inline-block;
-    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.mock-text-typed::after {
-    content: "universidade.com.br";
-    animation: type-url-text 15s infinite steps(20, end);
+.sim-typewriter-1::after {
+    content: "";
+    animation: sim-type-1 3s infinite steps(1, end);
 }
 
-.mock-dot {
+@keyframes sim-type-1 {
+    0% { content: ""; }
+    6% { content: "h"; }
+    12% { content: "ht"; }
+    18% { content: "http"; }
+    24% { content: "https://"; }
+    30% { content: "https://site"; }
+    36% { content: "https://site.com"; }
+    42%, 100% { content: "https://site.com"; }
+}
+
+.sim-dot-success {
     position: absolute;
-    right: 0.75rem;
-    width: 6px;
-    height: 6px;
+    right: 1rem;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: var(--text-placeholder);
-    animation: input-validation 15s infinite step-end;
+    animation: sim-dot-glow 3s infinite step-end;
 }
 
-.mock-options {
+@keyframes sim-dot-glow {
+    0%, 35% { background-color: var(--text-placeholder); box-shadow: none; }
+    36%, 100% { background-color: var(--success); box-shadow: 0 0 8px var(--success); }
+}
+
+/* Slide 2 Specifics */
+.slide-2 {
+    animation: slide-2-fade 15s infinite ease-in-out;
+}
+
+.sim-presets {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    width: 85%;
 }
 
-.mock-opt {
-    background: #04060b;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.5rem 0.25rem;
+.sim-preset {
+    background: rgba(3, 4, 7, 0.3);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 0.5rem;
     font-size: 0.7rem;
-    font-weight: 600;
-    text-align: center;
+    font-weight: 700;
     color: var(--text-muted);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.mock-opt-3 {
-    animation: opt-select-state 15s infinite ease-in-out;
+.active-preset {
+    animation: sim-preset-click 3s infinite ease-in-out;
 }
 
-.mock-btn {
+@keyframes sim-preset-click {
+    0%, 25% { border-color: var(--border-color); background: rgba(3, 4, 7, 0.3); color: var(--text-muted); }
+    30%, 100% { border-color: var(--primary-color); background: rgba(13, 223, 212, 0.05); color: var(--primary-color); box-shadow: 0 0 10px rgba(13, 223, 212, 0.1); }
+}
+
+/* Slide 3 Specifics */
+.slide-3 {
+    animation: slide-3-fade 15s infinite ease-in-out;
+}
+
+.sim-select {
+    background: rgba(3, 4, 7, 0.5);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-main);
+}
+
+.sim-arrow {
+    width: 12px;
+    height: 12px;
+    color: var(--text-placeholder);
+}
+
+.slide-3 .sim-select {
+    animation: sim-select-glow 3s infinite ease-in-out;
+}
+
+@keyframes sim-select-glow {
+    0%, 25% { border-color: var(--border-color); box-shadow: none; }
+    30%, 100% { border-color: var(--primary-color); box-shadow: 0 0 10px rgba(13, 223, 212, 0.1); }
+}
+
+/* Slide 4 Specifics */
+.slide-4 {
+    animation: slide-4-fade 15s infinite ease-in-out;
+}
+
+.sim-btn-submit {
     background: var(--primary-gradient);
     color: #030712;
-    border-radius: 6px;
-    padding: 0.6rem;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
     font-size: 0.75rem;
     font-weight: 700;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    margin-top: auto;
-    box-shadow: 0 4px 10px rgba(13, 223, 212, 0.15);
-    animation: mock-btn-click 15s infinite ease-in-out;
+    gap: 6px;
+    width: 80%;
+    box-shadow: 0 4px 15px rgba(13, 223, 212, 0.15);
+    animation: sim-btn-press 3s infinite ease-in-out;
 }
 
-.mock-btn-icon {
-    width: 12px;
-    height: 12px;
+@keyframes sim-btn-press {
+    0%, 40% { transform: scale(1); filter: brightness(1); }
+    45% { transform: scale(0.95); filter: brightness(0.9); }
+    50%, 100% { transform: scale(1); filter: brightness(1.15); box-shadow: 0 0 15px var(--primary-glow); }
 }
 
-.mock-toast {
-    position: absolute;
-    bottom: 0.75rem;
-    right: 0.75rem;
-    background: #080b13;
-    border: 1px solid var(--success);
-    border-radius: 6px;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: var(--success);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
-    opacity: 0;
-    transform: translateY(10px);
-    animation: mock-toast-pop 15s infinite ease-in-out;
+/* Slide 5 Specifics */
+.slide-5 {
+    animation: slide-5-fade 15s infinite ease-in-out;
 }
 
-.mock-toast-icon {
-    width: 10px;
-    height: 10px;
-}
-
-/* Screen 2: ChatGPT */
-.screen-chatgpt {
-    transform: translateX(100%);
-    animation: chatgpt-switch 15s infinite ease-in-out;
-}
-
-.chat-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-
-.chat-avatar {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    background: #00a67e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-}
-
-.chat-name {
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.chat-body {
-    flex-grow: 1;
+.sim-chat-area {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    overflow: hidden;
+    width: 85%;
+    position: relative;
 }
 
-.chat-bubble {
-    font-size: 0.65rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    max-width: 80%;
-    line-height: 1.4;
+.sim-keyboard-ctrl-v {
+    background: var(--primary-gradient);
+    color: #030712;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    align-self: center;
+    box-shadow: 0 0 12px var(--primary-glow);
+    animation: sim-ctrl-v-pulse 3s infinite ease-in-out;
 }
 
-.bubble-in {
-    background: #202b40;
-    color: var(--text-main);
-    align-self: flex-start;
+@keyframes sim-ctrl-v-pulse {
+    0%, 10% { opacity: 0; transform: scale(0.9); }
+    20%, 55% { opacity: 1; transform: scale(1); }
+    65%, 100% { opacity: 0; transform: scale(0.9); }
 }
 
-.bubble-out {
-    background: #00a67e;
-    color: white;
-    align-self: flex-end;
-    opacity: 0;
-    transform: translateY(10px);
-    white-space: pre-wrap;
-    animation: chatgpt-msg-sent 15s infinite ease-in-out;
-}
-
-.chat-input-area {
-    margin-top: auto;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.chat-input-box {
+.sim-chat-input {
     background: #04060b;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 0.5rem;
-    flex-grow: 1;
     height: 28px;
     display: flex;
     align-items: center;
-    position: relative;
     overflow: hidden;
 }
 
-.chat-input-placeholder {
-    font-size: 0.65rem;
-    color: var(--text-placeholder);
-    position: absolute;
-    left: 0.5rem;
-    animation: chatgpt-placeholder-hide 15s infinite step-end;
-}
-
-.chat-input-text {
+.typing-prompt {
     font-size: 0.65rem;
     color: var(--text-main);
     white-space: nowrap;
     overflow: hidden;
-    border-right: 1.5px solid transparent;
     display: inline-block;
-    animation: chatgpt-type-text 15s infinite steps(20, end);
+    border-right: 1.5px solid var(--primary-color);
+    width: 0;
+    animation: sim-chat-type 3s infinite steps(20, end);
 }
 
-.ctrl-v-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background: var(--primary-gradient);
-    color: #030712;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 800;
-    opacity: 0;
-    animation: ctrl-v-popup 15s infinite ease-in-out;
-    box-shadow: 0 0 10px var(--primary-glow);
+@keyframes sim-chat-type {
+    0%, 55% { width: 0; border-right-color: var(--primary-color); }
+    70%, 100% { width: 100%; border-right-color: transparent; }
 }
 
-.chat-send-btn {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-placeholder);
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    animation: chat-send-click-effect 15s infinite ease-in-out;
+/* Slide Fade Timelines (15s total, 3s each) */
+@keyframes slide-1-fade {
+    0%, 16% { opacity: 1; transform: scale(1); visibility: visible; }
+    20%, 96% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    100% { opacity: 1; transform: scale(1); visibility: visible; }
+}
+@keyframes slide-2-fade {
+    0%, 16% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    20%, 36% { opacity: 1; transform: scale(1); visibility: visible; }
+    40%, 96% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    100% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+}
+@keyframes slide-3-fade {
+    0%, 36% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    40%, 56% { opacity: 1; transform: scale(1); visibility: visible; }
+    60%, 96% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    100% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+}
+@keyframes slide-4-fade {
+    0%, 56% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    60%, 76% { opacity: 1; transform: scale(1); visibility: visible; }
+    80%, 96% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    100% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+}
+@keyframes slide-5-fade {
+    0%, 76% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+    80%, 96% { opacity: 1; transform: scale(1); visibility: visible; }
+    100% { opacity: 0; transform: scale(0.95); visibility: hidden; }
 }
 
-.mock-send-icon {
-    width: 12px;
-    height: 12px;
-}
-
-/* Simulated Cursor */
-.mock-cursor {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    z-index: 10;
-    pointer-events: none;
-    animation: cursor-movement 15s infinite ease-in-out;
-}
-
-.cursor-icon {
-    width: 14px;
-    height: 14px;
-    color: white;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
-    transform: rotate(-90deg);
-}
-
-/* Tutorial Steps Descriptions */
-.tutorial-steps-desc {
+/* Stepper indicators list */
+.tutorial-steps-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
     margin-top: 1rem;
 }
 
-.t-step {
+.step-indicator {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
     opacity: 0.4;
     transition: all 0.3s ease;
 }
 
-.t-badge {
+.step-indicator .step-number {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     color: var(--text-muted);
@@ -1331,156 +1210,48 @@ body {
     justify-content: center;
     font-size: 0.75rem;
     transition: all 0.3s ease;
+    margin-top: 0;
 }
 
-.t-step p {
+.step-indicator .step-text {
     font-size: 0.8rem;
     color: var(--text-muted);
     line-height: 1.4;
 }
 
-.t-step strong {
-    color: var(--text-main);
+/* Active Highlight Timelines */
+#step-1 { animation: step-1-highlight 15s infinite ease-in-out; }
+#step-2 { animation: step-2-highlight 15s infinite ease-in-out; }
+#step-3 { animation: step-3-highlight 15s infinite ease-in-out; }
+#step-4 { animation: step-4-highlight 15s infinite ease-in-out; }
+#step-5 { animation: step-5-highlight 15s infinite ease-in-out; }
+
+@keyframes step-1-highlight {
+    0%, 16% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
+    20%, 96% { opacity: 0.4; background: transparent; border-color: transparent; }
+    100% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
 }
 
-/* Synchronized Step Activation */
-.t-step:nth-child(1) { animation: step-1-active 15s infinite ease-in-out; }
-.t-step:nth-child(2) { animation: step-2-active 15s infinite ease-in-out; }
-.t-step:nth-child(3) { animation: step-3-active 15s infinite ease-in-out; }
-
-
-/* ==========================================
-   TUTORIAL TIMELINE KEYFRAMES (15s Loop)
-   ========================================== */
-
-/* Cursor Movement */
-@keyframes cursor-movement {
-    0% { transform: translate(350px, 250px); }
-    /* Passo 1: Digitar URL */
-    6% { transform: translate(100px, 60px); } /* Move para o campo de input */
-    16% { transform: translate(100px, 60px); } /* Clica/Foca e digita */
-    /* Passo 2: Selecionar Preset Alunos */
-    20% { transform: translate(320px, 120px); } /* Move para mock-opt-3 */
-    24% { transform: translate(320px, 120px) scale(0.85); } /* Clica */
-    26% { transform: translate(320px, 120px) scale(1); }
-    /* Passo 3: Iniciar Auditoria */
-    30% { transform: translate(220px, 205px); } /* Move para botão Iniciar */
-    34% { transform: translate(220px, 205px) scale(0.85); } /* Clica */
-    36% { transform: translate(220px, 205px) scale(1); }
-    40% { transform: translate(350px, 250px); } /* Sai da tela */
-    
-    /* Passo 4: ChatGPT */
-    43% { transform: translate(350px, 250px); } /* Tela transiciona */
-    52% { transform: translate(180px, 225px); } /* Move para a barra do ChatGPT */
-    56% { transform: translate(180px, 225px) scale(0.85); } /* Clica na barra */
-    58% { transform: translate(180px, 225px) scale(1); }
-    64% { transform: translate(180px, 225px); } /* Espera colar */
-    70% { transform: translate(410px, 225px); } /* Move para botão Enviar */
-    74% { transform: translate(410px, 225px) scale(0.85); } /* Clica enviar */
-    76% { transform: translate(410px, 225px) scale(1); }
-    82% { transform: translate(350px, 250px); } /* Sai de cena */
-    100% { transform: translate(350px, 250px); }
+@keyframes step-2-highlight {
+    0%, 16% { opacity: 0.4; background: transparent; border-color: transparent; }
+    20%, 36% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
+    40%, 100% { opacity: 0.4; background: transparent; border-color: transparent; }
 }
 
-/* Portal Screen Animation */
-@keyframes portal-switch {
-    0%, 40% { transform: translateX(0); opacity: 1; }
-    42%, 92% { transform: translateX(-100%); opacity: 0; }
-    94%, 100% { transform: translateX(0); opacity: 1; }
+@keyframes step-3-highlight {
+    0%, 36% { opacity: 0.4; background: transparent; border-color: transparent; }
+    40%, 56% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
+    60%, 100% { opacity: 0.4; background: transparent; border-color: transparent; }
 }
 
-/* ChatGPT Screen Animation */
-@keyframes chatgpt-switch {
-    0%, 40% { transform: translateX(100%); opacity: 0; }
-    42%, 92% { transform: translateX(0); opacity: 1; }
-    94%, 100% { transform: translateX(100%); opacity: 0; }
+@keyframes step-4-highlight {
+    0%, 56% { opacity: 0.4; background: transparent; border-color: transparent; }
+    60%, 76% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
+    80%, 100% { opacity: 0.4; background: transparent; border-color: transparent; }
 }
 
-/* Simulated URL Typing */
-@keyframes type-url-text {
-    0% { width: 0; }
-    6% { width: 0; }
-    14%, 100% { width: 100%; }
-}
-
-/* Mock Input validation dot */
-@keyframes input-validation {
-    0%, 14% { background-color: var(--text-placeholder); box-shadow: none; }
-    15%, 100% { background-color: var(--success); box-shadow: 0 0 6px var(--success); }
-}
-
-/* Preset selection state */
-@keyframes opt-select-state {
-    0%, 23% { border-color: var(--border-color); background: rgba(3, 4, 7, 0.2); color: var(--text-muted); }
-    24%, 100% { border-color: var(--primary-color); background: rgba(13, 223, 212, 0.05); color: var(--primary-color); }
-}
-
-/* Submit Button Click styling */
-@keyframes mock-btn-click {
-    0%, 33% { transform: scale(1); filter: brightness(1); }
-    34% { transform: scale(0.95); filter: brightness(0.9); }
-    36%, 100% { transform: scale(1); filter: brightness(1.1); box-shadow: 0 0 10px var(--primary-glow); }
-}
-
-/* Mock Toast pop styling */
-@keyframes mock-toast-pop {
-    0%, 35% { opacity: 0; transform: translateY(10px); }
-    38%, 41% { opacity: 1; transform: translateY(0); }
-    43%, 100% { opacity: 0; transform: translateY(-10px); }
-}
-
-/* ChatGPT Input text typing simulation */
-@keyframes chatgpt-type-text {
-    0%, 58% { width: 0; content: ""; }
-    64%, 73% { width: 100%; content: "Olá Guardião Digital! Analise o site..."; }
-    74%, 100% { width: 0; content: ""; }
-}
-
-/* ChatGPT Input placeholder hiding */
-@keyframes chatgpt-placeholder-hide {
-    0%, 57% { opacity: 1; }
-    58%, 73% { opacity: 0; }
-    74%, 100% { opacity: 1; }
-}
-
-/* Ctrl+V Overlay popup */
-@keyframes ctrl-v-popup {
-    0%, 57% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    59%, 62% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-    64%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-}
-
-/* ChatGPT Send Button effect */
-@keyframes chat-send-click-effect {
-    0%, 73% { background: rgba(255, 255, 255, 0.1); color: var(--text-placeholder); }
-    74% { background: var(--primary-color); color: #030712; transform: scale(0.9); }
-    76%, 100% { background: rgba(255, 255, 255, 0.1); color: var(--text-placeholder); transform: scale(1); }
-}
-
-/* User Message bubble showing */
-@keyframes chatgpt-msg-sent {
-    0%, 74% { opacity: 0; transform: translateY(10px); content: ""; }
-    77%, 92% { opacity: 1; transform: translateY(0); content: "Olá Guardião Digital! Analise o site..."; }
-    94%, 100% { opacity: 0; transform: translateY(10px); content: ""; }
-}
-
-/* Sync Step 1 text active state */
-@keyframes step-1-active {
-    0%, 3% { opacity: 0.4; border-color: transparent; background: transparent; }
-    4%, 23% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
-    24%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
-}
-
-/* Sync Step 2 text active state */
-@keyframes step-2-active {
-    0%, 23% { opacity: 0.4; border-color: transparent; background: transparent; }
-    24%, 41% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
-    42%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
-}
-
-/* Sync Step 3 text active state */
-@keyframes step-3-active {
-    0%, 41% { opacity: 0.4; border-color: transparent; background: transparent; }
-    42%, 91% { opacity: 1; border-color: var(--border-color); background: rgba(255, 255, 255, 0.02); }
-    92%, 100% { opacity: 0.4; border-color: transparent; background: transparent; }
+@keyframes step-5-highlight {
+    0%, 76% { opacity: 0.4; background: transparent; border-color: transparent; }
+    80%, 96% { opacity: 1; background: rgba(13, 223, 212, 0.04); border-color: rgba(13, 223, 212, 0.15); }
+    100% { opacity: 0.4; background: transparent; border-color: transparent; }
 }
