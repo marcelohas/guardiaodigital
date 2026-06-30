@@ -15,72 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dicionário de Tons
     const TONES = {
-        executivo: 'Executivo (linguagem corporativa, focada em análise de riscos de negócios, impacto financeiro/reputacional e tomada de decisão para diretoria)',
-        tecnico: 'Técnico (linguagem direta para desenvolvedores e TI, focada em vulnerabilidades técnicas, headers de segurança, configurações de cookies e passos objetivos para correção de código)',
-        compliance: 'Compliance (linguagem jurídica e de auditoria de dados, com foco nos artigos específicos da Lei Geral de Proteção de Dados - Lei 13.709/2018 - que foram infringidos)'
+        executivo: 'Executivo (focado em riscos de negócios, conformidade corporativa e tomada de decisão)',
+        tecnico: 'Técnico (focado em desenvolvedores, com detalhes técnicos de correção de código e vulnerabilidades)',
+        compliance: 'Compliance (focado em auditoria jurídica, referenciando os artigos infringidos da LGPD)'
     };
 
-    // Dicionário de Templates de Prompt
+    // Dicionário de Templates de Prompt (Formatados em linha única para funcionar via parâmetro de URL ?q=)
     const PROMPT_TEMPLATES = {
-        completa: `Olá, Guardião Digital! 🛡️
-
-Por favor, realize uma **Auditoria Geral Completa** de conformidade com a LGPD e segurança da informação para o seguinte website:
-🔗 **URL**: [URL]
-
-### Diretrizes de Análise:
-1. Acesse o site e aplique a metodologia descrita no **Playbook do Auditor** para levantar evidências e analisar conformidade.
-2. Calcule e apresente a nota do site utilizando a fórmula e faixas do **Framework de Pontuação (Score GDS)**.
-3. Classifique os problemas identificados e estruture os riscos encontrados com base na **Matriz de Riscos**.
-4. Apresente os resultados consolidados estruturando a resposta no formato do **Modelo de Relatório Executivo**.
-
-### Tom e Formato:
-- **Tom do Relatório**: [TOM]
-- Apresente um resumo executivo com as vulnerabilidades encontradas e as recomendações práticas de mitigação.`,
-
-        cookies: `Olá, Guardião Digital! 🛡️
-
-Por favor, realize uma auditoria focada em **Cookies e Consentimento de LGPD** para o seguinte website:
-🔗 **URL**: [URL]
-
-### Diretrizes de Análise:
-1. Identifique se o site possui um Banner de Cookies (Cookie Consent) ativo e visível.
-2. Avalie se o site realiza bloqueio prévio de scripts não essenciais (pixels, analytics, tags de rastreamento) antes do consentimento do usuário (Opt-in).
-3. Verifique se o site fornece opções claras e equivalentes para aceitar, rejeitar ou gerenciar cookies.
-4. Pontue a conformidade de cookies e rastreadores utilizando os critérios do **Score GDS** e identifique riscos com a **Matriz de Riscos**.
-
-### Tom e Formato:
-- **Tom do Relatório**: [TOM]
-- Liste quais cookies/scripts estão rodando antes do consentimento e dê instruções específicas de como ajustar a conformidade do banner.`,
-
-        politica: `Olá, Guardião Digital! 🛡️
-
-Por favor, realize uma análise crítica da **Política de Privacidade e Termos de Uso** para o seguinte website:
-🔗 **URL**: [URL]
-
-### Diretrizes de Análise:
-1. Verifique se o site disponibiliza links visíveis e de fácil acesso para a Política de Privacidade.
-2. Avalie se a política atende aos princípios de transparência da LGPD (bases legais utilizadas, finalidades do tratamento, tempo de retenção e direitos dos titulares).
-3. Verifique a indicação do Encarregado de Proteção de Dados (DPO) e se há canal de contato específico para petições de titulares.
-4. Pontue este nível documental com base no **Score GDS** e registre eventuais ausências legais no formato do **Modelo de Relatório Executivo**.
-
-### Tom e Formato:
-- **Tom do Relatório**: [TOM]
-- Indique os itens que faltam no documento e sugira redações corretivas para as cláusulas ausentes ou em desacordo.`,
-
-        seguranca: `Olá, Guardião Digital! 🛡️
-
-Por favor, realize uma auditoria focada em **Coleta de Dados e Segurança de Formulários** para o seguinte website:
-🔗 **URL**: [URL]
-
-### Diretrizes de Análise:
-1. Avalie a segurança no tráfego de dados do site (presença e configuração de HTTPS/SSL e criptografia de formulários).
-2. Analise todos os formulários públicos de contato, newsletters ou cadastros presentes no endereço.
-3. Verifique se os formulários solicitam consentimento explícito e desmarcado por padrão (checkboxes) para o uso de dados pessoais para fins específicos.
-4. Classifique as vulnerabilidades e os riscos de vazamento ou exposição indesejada com base no **Playbook do Auditor** e na **Matriz de Riscos**.
-
-### Tom e Formato:
-- **Tom do Relatório**: [TOM]
-- Destaque falhas de segurança encontradas, riscos de exposição de dados e apresente as soluções corretivas correspondentes.`
+        completa: "Olá Guardião Digital! 🛡️ Por favor, realize uma Auditoria Geral Completa de conformidade com a LGPD e segurança para o site: [URL]. Utilize a metodologia do Playbook do Auditor para buscar evidências, calcule a nota usando o Score GDS, classifique os riscos com a Matriz de Riscos e estruture a resposta no padrão do Modelo de Relatório Executivo. O tom do relatório deve ser [TOM].",
+        cookies: "Olá Guardião Digital! 🛡️ Por favor, realize uma auditoria focada em Cookies e Consentimento de LGPD para o site: [URL]. Avalie se há um Banner de Cookies ativo, se há bloqueio prévio de scripts não essenciais (Opt-in) e se há opções fáceis de aceitar/rejeitar. Use o Score GDS e a Matriz de Riscos. O tom do relatório deve ser [TOM].",
+        politica: "Olá Guardião Digital! 🛡️ Por favor, realize uma análise crítica da Política de Privacidade e Termos de Uso do site: [URL]. Verifique se o documento atende aos requisitos de transparência da LGPD, se há indicação do DPO e canal de contato para titulares. Pontue usando o Score GDS. O tom do relatório deve ser [TOM].",
+        seguranca: "Olá Guardião Digital! 🛡️ Por favor, realize uma auditoria de Coleta de Dados e Segurança de Formulários do site: [URL]. Avalie o uso de HTTPS, examine os formulários de cadastro/contato e verifique se há caixas de consentimento explícitas desmarcadas por padrão. Classifique com o Playbook e a Matriz de Riscos. O tom do relatório deve ser [TOM]."
     };
 
     // Função para Validar a URL
