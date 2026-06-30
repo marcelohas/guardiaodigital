@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardião Digital | Portal de Auditoria LGPD</title>
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Gere prompts personalizados para auditar a conformidade de sites com a LGPD e segurança utilizando a inteligência artificial do Guardião Digital.">
+    <meta name="keywords" content="LGPD, Auditoria, Segurança Digital, Proteção de Dados, Guardião Digital, Tchelo Educa, Prompt Generator">
+    <meta name="author" content="Tchelo Educa">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background decorativo com gradientes neon -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo-icon-wrapper">
+                    <i data-lucide="shield-check" class="logo-icon"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>GUARDIÃO <span>DIGITAL</span></h1>
+                    <p class="tagline">Auditoria de LGPD & Segurança Inteligente</p>
+                </div>
+            </div>
+            <div class="badge-container">
+                <span class="badge">by Tchelo Educa</span>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="app-main">
+            <!-- Grid de Duas Colunas -->
+            <div class="dashboard-grid">
+                
+                <!-- Coluna da Esquerda: Formulário de Configuração -->
+                <section class="card config-card">
+                    <div class="card-header">
+                        <i data-lucide="sliders" class="card-header-icon"></i>
+                        <h2>Configurar Auditoria</h2>
+                    </div>
+                    
+                    <form id="audit-form" onsubmit="event.preventDefault();">
+                        <!-- Input do Website URL -->
+                        <div class="form-group">
+                            <label for="site-url">URL do Website para Análise</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="globe" class="input-icon"></i>
+                                <input type="text" id="site-url" placeholder="https://exemplo.com.br" autocomplete="off" required>
+                                <span class="validation-dot" id="url-validation-dot"></span>
+                            </div>
+                            <span class="helper-text" id="url-helper">Insira uma URL válida para iniciar.</span>
+                        </div>
+
+                        <!-- Seleção do Foco da Auditoria (Presets) -->
+                        <div class="form-group">
+                            <label>Foco da Auditoria (Escopo)</label>
+                            <div class="presets-grid">
+                                <label class="preset-option active" for="preset-completa">
+                                    <input type="radio" name="preset" id="preset-completa" value="completa" checked>
+                                    <span class="preset-box">
+                                        <i data-lucide="layout-dashboard"></i>
+                                        <span class="option-title">Auditoria Geral</span>
+                                        <span class="option-desc">Avaliação completa de LGPD e segurança</span>
+                                    </span>
+                                </label>
+                                
+                                <label class="preset-option" for="preset-cookies">
+                                    <input type="radio" name="preset" id="preset-cookies" value="cookies">
+                                    <span class="preset-box">
+                                        <i data-lucide="cookie"></i>
+                                        <span class="option-title">Cookies & Banner</span>
+                                        <span class="option-desc">Consentimento, bloqueios e políticas</span>
+                                    </span>
+                                </label>
+                                
+                                <label class="preset-option" for="preset-politica">
+                                    <input type="radio" name="preset" id="preset-politica" value="politica">
+                                    <span class="preset-box">
+                                        <i data-lucide="file-text"></i>
+                                        <span class="option-title">Políticas & Termos</span>
+                                        <span class="option-desc">Clareza e conformidade legal</span>
+                                    </span>
+                                </label>
+                                
+                                <label class="preset-option" for="preset-seguranca">
+                                    <input type="radio" name="preset" id="preset-seguranca" value="seguranca">
+                                    <span class="preset-box">
+                                        <i data-lucide="lock"></i>
+                                        <span class="option-title">Coleta de Dados</span>
+                                        <span class="option-desc">Formulários, HTTPS e exposição</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Seleção do Tom do Relatório -->
+                        <div class="form-group">
+                            <label for="report-tone">Tom do Relatório</label>
+                            <div class="select-wrapper">
+                                <i data-lucide="message-square" class="select-icon"></i>
+                                <select id="report-tone">
+                                    <option value="executivo" selected>👔 Executivo (Foco em Gestão e Negócios)</option>
+                                    <option value="tecnico">💻 Técnico (Foco em Devs e Correções de Código)</option>
+                                    <option value="compliance">⚖️ Compliance (Foco Legal e Artigos da LGPD)</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="select-arrow"></i>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Coluna da Direita: Prompt & Ações -->
+                <section class="card prompt-card">
+                    <div class="card-header">
+                        <i data-lucide="terminal" class="card-header-icon"></i>
+                        <h2>Prompt Gerado para o Agente</h2>
+                        <span class="live-indicator">LIVE</span>
+                    </div>
+                    
+                    <div class="prompt-container">
+                        <pre class="prompt-preview"><code id="prompt-output">Carregando prompt...</code></pre>
+                        <button type="button" id="btn-copy" class="btn btn-secondary" title="Copiar prompt para a área de transferência">
+                            <i data-lucide="copy" class="btn-icon"></i>
+                            <span>Copiar Prompt</span>
+                        </button>
+                    </div>
+
+                    <!-- Botão Principal de Ação -->
+                    <button type="button" id="btn-submit" class="btn btn-primary btn-large disabled">
+                        <i data-lucide="zap" class="btn-icon"></i>
+                        <span>Iniciar Auditoria no ChatGPT</span>
+                    </button>
+                    
+                    <div class="toast-container" id="toast-container">
+                        <div class="toast-message">
+                            <i data-lucide="check-circle" class="toast-icon"></i>
+                            <div>
+                                <strong>Prompt Copiado!</strong>
+                                <p>O agente está abrindo. Basta colar (Ctrl+V) no chat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Seção de Frameworks e Metodologia -->
+            <section class="frameworks-section">
+                <div class="section-title-wrapper">
+                    <h2>Metodologias do Guardião Digital</h2>
+                    <p>O agente utiliza estes frameworks estruturados para analisar e pontuar o seu site:</p>
+                </div>
+                
+                <div class="frameworks-grid">
+                    <!-- Score GDS -->
+                    <div class="framework-card">
+                        <div class="framework-icon-wrapper">
+                            <i data-lucide="bar-chart-3" class="framework-icon"></i>
+                        </div>
+                        <h3>Score GDS</h3>
+                        <p>Framework de pontuação matemática que avalia o nível de conformidade do site em faixas críticas, regulares ou ideais.</p>
+                    </div>
+
+                    <!-- Matriz de Riscos -->
+                    <div class="framework-card">
+                        <div class="framework-icon-wrapper">
+                            <i data-lucide="alert-triangle" class="framework-icon"></i>
+                        </div>
+                        <h3>Matriz de Riscos</h3>
+                        <p>Avaliação detalhada que mapeia a severidade e a probabilidade de falhas e incidentes com dados pessoais no site analisado.</p>
+                    </div>
+
+                    <!-- Playbook do Auditor -->
+                    <div class="framework-card">
+                        <div class="framework-icon-wrapper">
+                            <i data-lucide="book-open" class="framework-icon"></i>
+                        </div>
+                        <h3>Playbook do Auditor</h3>
+                        <p>Procedimento operacional padronizado que guia o agente na coleta minuciosa de evidências de cookies, formulários e HTTPS.</p>
+                    </div>
+
+                    <!-- Relatório Executivo -->
+                    <div class="framework-card">
+                        <div class="framework-icon-wrapper">
+                            <i data-lucide="file-check-2" class="framework-icon"></i>
+                        </div>
+                        <h3>Relatório Executivo</h3>
+                        <p>Modelo profissional utilizado pelo agente para estruturar os achados, as notas e as recomendações de forma executiva.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Guardião Digital por Tchelo Educa. Todos os direitos reservados.</p>
+            <p class="footer-links">
+                <a href="https://chatgpt.com/g/g-6a419db8b8e08191a1982dc14621cc97-guardiao-digital-by-tchelo-educa" target="_blank" rel="noopener">Acessar Custom GPT</a>
+                <span class="separator">&bull;</span>
+                <span class="footer-tech">Hospedado no GitHub Pages</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Script da Aplicação -->
+    <script src="app.js"></script>
+</body>
+</html>
